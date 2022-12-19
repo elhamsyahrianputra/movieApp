@@ -62,22 +62,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   HomeMoviesBuilder(
                                       movies: __.trendingMovies,
                                       title: "Trending Movies"),
-<<<<<<< Updated upstream
-                                  HomeTrendingsBuilder(
-                                      trendings: __.trendingShows,
-                                      title: "Trending TV Shows"),
-                                  __.recommendations.length > 10
-                                      ? HomeTrendingsBuilder(
-                                          trendings: __.recommendations,
-                                          title: "Recommended For You")
-                                      : const SizedBox.shrink(),
-                                  HomeTrendingsBuilder(
-                                      trendings: __.inTheaters,
-                                      title: "Currently In Theatres"),
-                                  const SizedBox(
-                                    height: 20,
-                                  )
-=======
                                   HomeMoviesBuilder(
                                       movies: __.newreleaseMovies,
                                       title: "New Release"),
@@ -87,7 +71,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   HomeMoviesBuilder(
                                       movies: __.topMovies,
                                       title: "Best Movies All Of Time"),
->>>>>>> Stashed changes
                                 ],
                               ),
                             ),
