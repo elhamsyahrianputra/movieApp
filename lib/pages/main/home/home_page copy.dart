@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movielab/constants/app.dart';
 import 'package:movielab/constants/colors.dart';
+import 'package:movielab/models/hive/convertor.dart';
 import 'package:movielab/models/hive/models/show_preview.dart';
 import 'package:movielab/modules/tools/system_ui_overlay_style.dart';
 import 'package:movielab/pages/main/main_controller.dart';
@@ -14,6 +15,10 @@ import 'package:movielab/widgets/inefficacious_refresh_indicator.dart';
 import 'package:ms_undraw/ms_undraw.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'home_data_controller.dart';
+import 'sections/box_office/box_office.dart';
+import 'sections/companies/companies.dart';
+import 'sections/genres/genres.dart';
+import 'sections/imdb_lists/lists.dart';
 import 'sections/navbar/navbar.dart';
 import 'sections/movies/home_movies.dart';
 
@@ -62,22 +67,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   HomeMoviesBuilder(
                                       movies: __.trendingMovies,
                                       title: "Trending Movies"),
-<<<<<<< Updated upstream
-                                  HomeTrendingsBuilder(
-                                      trendings: __.trendingShows,
-                                      title: "Trending TV Shows"),
-                                  __.recommendations.length > 10
-                                      ? HomeTrendingsBuilder(
-                                          trendings: __.recommendations,
-                                          title: "Recommended For You")
-                                      : const SizedBox.shrink(),
-                                  HomeTrendingsBuilder(
-                                      trendings: __.inTheaters,
-                                      title: "Currently In Theatres"),
-                                  const SizedBox(
-                                    height: 20,
-                                  )
-=======
                                   HomeMoviesBuilder(
                                       movies: __.newreleaseMovies,
                                       title: "New Release"),
@@ -87,7 +76,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   HomeMoviesBuilder(
                                       movies: __.topMovies,
                                       title: "Best Movies All Of Time"),
->>>>>>> Stashed changes
                                 ],
                               ),
                             ),

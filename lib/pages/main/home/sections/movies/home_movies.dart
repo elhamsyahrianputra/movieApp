@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:movielab/models/item_models/show_models/show_preview_model.dart';
 import 'package:movielab/modules/tools/navigate.dart';
 import 'package:movielab/pages/main/home/sections/home_titles.dart';
-import 'package:movielab/pages/main/home/sections/trendings/all_trendings.dart';
+import 'package:movielab/pages/main/home/sections/movies/all_movies.dart';
 import 'package:movielab/pages/shared/item_exhibitor/item_box/compressed_item_box/compressed_item_box.dart';
 import 'package:movielab/widgets/error.dart';
 
-class HomeTrendingsBuilder extends StatelessWidget {
-  final List<ShowPreview> trendings;
+class HomeMoviesBuilder extends StatelessWidget {
+  final List<ShowPreview> movies;
   final String title;
-  const HomeTrendingsBuilder(
-      {Key? key, required this.trendings, required this.title})
+  const HomeMoviesBuilder(
+      {Key? key, required this.movies, required this.title})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class HomeTrendingsBuilder extends StatelessWidget {
               InkWell(
                 onTap: () {
                   Navigate.pushTo(context,
-                      AllTrendingsPage(trendings: trendings, title: title));
+                      AllMoviesPage(movies: movies, title: title));
                 },
                 highlightColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -47,8 +47,8 @@ class HomeTrendingsBuilder extends StatelessWidget {
             ],
           ),
           SizedBox(
-              height: trendings[0].crew != "" ? 280 : 270,
-              child: trendings.isNotEmpty
+              height: movies[0].crew != "" ? 280 : 270,
+              child: movies.isNotEmpty
                   ? Row(
                       children: [
                         Expanded(
@@ -57,10 +57,10 @@ class HomeTrendingsBuilder extends StatelessWidget {
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
                               itemCount:
-                                  trendings.length > 10 ? 10 : trendings.length,
+                                  movies.length > 10 ? 10 : movies.length,
                               itemBuilder: (context, index) {
                                 return CompressedItemBox(
-                                  showPreview: trendings[index],
+                                  showPreview: movies[index],
                                   preTag: title,
                                 );
                               }),
