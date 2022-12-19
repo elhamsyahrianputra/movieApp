@@ -6,11 +6,11 @@ import 'package:movielab/models/item_models/show_models/show_preview_model.dart'
 import 'package:movielab/pages/shared/item_exhibitor/item_box/expanded_item_box/expanded_item_box.dart';
 import 'package:movielab/widgets/inefficacious_refresh_indicator.dart';
 
-class AllTrendingsPage extends StatelessWidget {
-  final List<ShowPreview> trendings;
+class AllMoviesPage extends StatelessWidget {
+  final List<ShowPreview> movies;
   final String title;
-  const AllTrendingsPage(
-      {Key? key, required this.trendings, required this.title})
+  const AllMoviesPage(
+      {Key? key, required this.movies, required this.title})
       : super(key: key);
 
   @override
@@ -40,11 +40,11 @@ class AllTrendingsPage extends StatelessWidget {
                   height: MediaQuery.of(context).size.height,
                   child: InefficaciousRefreshIndicator(
                     child: ListView.builder(
-                      itemCount: trendings.length,
+                      itemCount: movies.length,
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
                         return ExpandedItemBox(
-                          show: trendings[index],
+                          show: movies[index],
                           iRank: (index + 1).toString(),
                           preTag: title,
                           showType: title == "Recommended For You"

@@ -8,6 +8,24 @@ class HomeDataController extends GetxController {
     update();
   }
 
+  List<ShowPreview> newreleaseMovies = [];
+  updateNewreleaseMovies({required List<ShowPreview> newreleaseMovies}) {
+    this.newreleaseMovies = newreleaseMovies;
+    update();
+  }
+
+  List<ShowPreview> topMovies = [];
+  updateTopMovies({required List<ShowPreview> topMovies}) {
+    this.topMovies = topMovies;
+    update();
+  }
+
+  List<ShowPreview> comingsoonMovies = [];
+  updateComingsoonMovies({required List<ShowPreview> comingsoonMovies}) {
+    this.comingsoonMovies = comingsoonMovies;
+    update();
+  }
+
   List<ShowPreview> trendingShows = [];
   updateTrendingShows({required List<ShowPreview> trendingShows}) {
     this.trendingShows = trendingShows;

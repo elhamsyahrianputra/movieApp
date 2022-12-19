@@ -44,6 +44,78 @@ class APIRequester {
       return RequestResult.FAILURE_SERVER_PROBLEM;
     }
   }
+  
+//Get New Release Movies
+   Future<RequestResult> getTopMovies() async {
+    final response = await getUrl(
+      order: "Top250Movies",
+    );
+    if (response.statusCode == 200) {
+      if (jsonDecode(response.body)["errorMessage"] != "") {
+        return RequestResult.FAILURE_SERVER_PROBLEM;
+      }
+      var json = jsonDecode(response.body)["items"];
+      List<ShowPreview> topMovies = [];
+      for (int i = 0; i < json.length; i++) {
+        if (!unavailableIDs.contains(json[i]["id"])) {
+          topMovies.add(ShowPreview.fromJson(json[i]));
+        }
+      }
+      Get.find<HomeDataController>()
+          .updateTopMovies(topMovies: topMovies);
+      return RequestResult.SUCCESS;
+    } else {
+      return RequestResult.FAILURE_SERVER_PROBLEM;
+    }
+  }
+
+//Get New Release Movies
+   Future<RequestResult> getNewReleaseMovies() async {
+    final response = await getUrl(
+      order: "InTheaters",
+    );
+    if (response.statusCode == 200) {
+      if (jsonDecode(response.body)["errorMessage"] != "") {
+        return RequestResult.FAILURE_SERVER_PROBLEM;
+      }
+      var json = jsonDecode(response.body)["items"];
+      List<ShowPreview> newreleaseMovies = [];
+      for (int i = 0; i < json.length; i++) {
+        if (!unavailableIDs.contains(json[i]["id"])) {
+          newreleaseMovies.add(ShowPreview.fromJson(json[i]));
+        }
+      }
+      Get.find<HomeDataController>()
+          .updateNewreleaseMovies(newreleaseMovies: newreleaseMovies);
+      return RequestResult.SUCCESS;
+    } else {
+      return RequestResult.FAILURE_SERVER_PROBLEM;
+    }
+  }
+
+  //Get Coming Soon Movies
+   Future<RequestResult> getComingSoonMovies() async {
+    final response = await getUrl(
+      order: "ComingSoon",
+    );
+    if (response.statusCode == 200) {
+      if (jsonDecode(response.body)["errorMessage"] != "") {
+        return RequestResult.FAILURE_SERVER_PROBLEM;
+      }
+      var json = jsonDecode(response.body)["items"];
+      List<ShowPreview> comingsoonMovies = [];
+      for (int i = 0; i < json.length; i++) {
+        if (!unavailableIDs.contains(json[i]["id"])) {
+          comingsoonMovies.add(ShowPreview.fromJson(json[i]));
+        }
+      }
+      Get.find<HomeDataController>()
+          .updateComingsoonMovies(comingsoonMovies: comingsoonMovies);
+      return RequestResult.SUCCESS;
+    } else {
+      return RequestResult.FAILURE_SERVER_PROBLEM;
+    }
+  }
 
   // Get recently trending TV shows from the IMDB API
   Future<RequestResult> getTrendingTVShows() async {

@@ -7,6 +7,9 @@ Future<RequestResult> getInitialData() async {
   final apiRequester = APIRequester();
   try {
     await apiRequester.getTrendingMovies();
+    await apiRequester.getNewReleaseMovies();
+    await apiRequester.getComingSoonMovies();
+    await apiRequester.getTopMovies();
     await apiRequester.getTrendingTVShows();
     await apiRequester.getInTheaters();
   } catch (e) {
@@ -14,7 +17,10 @@ Future<RequestResult> getInitialData() async {
     return RequestResult.FAILURE_USER_PROBLEM;
   }
   if (Get.find<HomeDataController>().trendingMovies.isNotEmpty ||
+      Get.find<HomeDataController>().newreleaseMovies.isNotEmpty ||
       Get.find<HomeDataController>().trendingShows.isNotEmpty ||
+      Get.find<HomeDataController>().topMovies.isNotEmpty ||
+      Get.find<HomeDataController>().comingsoonMovies.isNotEmpty ||
       Get.find<HomeDataController>().inTheaters.isNotEmpty) {
     return RequestResult.SUCCESS;
   }
