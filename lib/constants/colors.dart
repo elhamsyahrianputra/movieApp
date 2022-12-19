@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-const kBackgroundColor = Color(0xff191A32);
+const kBackgroundColor = Color(0xff000000);
 const kPrimaryColor = Color(0xffE11A38);
 const kPrimaryColorSchemes = <Color>[
   Color(0xff9c1227),
@@ -11,9 +11,9 @@ const kPrimaryColorSchemes = <Color>[
   Color(0xffFFA600),
   Color(0xffec5b71),
 ];
-const kSecondaryColor = Color(0xff132d4e);
+const kSecondaryColor = Color(0xff111111);
 const kAccentColor = Color(0xff00bfff);
 const kImdbColor = Color(0xffE6B91E);
 const kGreyColor = Color(0xffA2A2A5);
-const kBlueColor = Color(0xff162C5D);
+const kBlueColor = Color(0xff000000);
 const kLightBlueColor = Color(0xff00bfff);

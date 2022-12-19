@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movielab/constants/app.dart';
 import 'package:movielab/constants/colors.dart';
-import 'package:movielab/models/hive/convertor.dart';
 import 'package:movielab/models/hive/models/show_preview.dart';
 import 'package:movielab/modules/tools/system_ui_overlay_style.dart';
 import 'package:movielab/pages/main/main_controller.dart';
@@ -15,10 +14,6 @@ import 'package:movielab/widgets/inefficacious_refresh_indicator.dart';
 import 'package:ms_undraw/ms_undraw.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'home_data_controller.dart';
-import 'sections/box_office/box_office.dart';
-import 'sections/companies/companies.dart';
-import 'sections/genres/genres.dart';
-import 'sections/imdb_lists/lists.dart';
 import 'sections/navbar/navbar.dart';
 import 'sections/trendings/home_trendings.dart';
 
@@ -77,38 +72,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   HomeTrendingsBuilder(
                                       trendings: __.inTheaters,
                                       title: "Currently In Theatres"),
-                                  const Padding(
-                                    padding: EdgeInsets.only(top: 10),
-                                    child: HomePopularGenres(
-                                        title: 'Popular Genres'),
-                                  ),
-                                  watchlist.isNotEmpty
-                                      ? HomeTrendingsBuilder(trendings: [
-                                          for (HiveShowPreview hive
-                                              in watchlist)
-                                            convertHiveToShowPreview(hive)
-                                        ], title: "Your Watchlist")
-                                      : const SizedBox.shrink(),
-                                  collection.isNotEmpty
-                                      ? HomeTrendingsBuilder(trendings: [
-                                          for (HiveShowPreview hive
-                                              in collection)
-                                            convertHiveToShowPreview(hive)
-                                        ], title: "Your Collection")
-                                      : const SizedBox.shrink(),
-                                  const HomeIMDbLists(title: 'IMDb Lists'),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const HomePopularCompanies(
-                                    title: 'Popular Companies',
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const HomeBoxOffice(
-                                    title: 'Box Office',
-                                  ),
                                   const SizedBox(
                                     height: 20,
                                   )

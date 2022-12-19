@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:movielab/constants/colors.dart';
 import 'package:movielab/constants/types.dart';
 import 'package:movielab/modules/cache/get_item_info.dart';
@@ -91,75 +90,7 @@ class _ActorPageState extends State<ActorPage> with TickerProviderStateMixin {
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
             height: _isBottomAppBarVisible ? 60 : 0.0,
-            child: BottomAppBar(
-                shape: const CircularNotchedRectangle(),
-                clipBehavior: Clip.antiAlias,
-                notchMargin: 7.5,
-                color: kSecondaryColor,
-                child: ActorPageBottomBar(
-                  actor: actor,
-                )),
           ),
-          floatingActionButton: FloatingActionButton(
-              onPressed: () async {
-                if (!isFavourite) {
-                  preferencesShareholder.addArtistToFav(actor: actor);
-                  await Future.delayed(const Duration(milliseconds: 200));
-                  fToast.removeQueuedCustomToasts();
-                  fToast.showToast(
-                    child: ToastWidget(
-                      mainText: "Saved to Artists",
-                      buttonText: "See list",
-                      buttonColor: kAccentColor,
-                      pushOnButtonTap: true,
-                      listName: 'artists',
-                    ),
-                    gravity: ToastGravity.BOTTOM,
-                    toastDuration: const Duration(seconds: 3),
-                  );
-                  setState(() => isFavourite = true);
-                } else {
-                  preferencesShareholder.unfavArtist(id: actor.id);
-                  await Future.delayed(const Duration(milliseconds: 200));
-                  fToast.removeQueuedCustomToasts();
-                  fToast.showToast(
-                    child: ToastWidget(
-                        mainText: "Ramoved from Artists",
-                        buttonText: "Undo",
-                        buttonColor: kPrimaryColor,
-                        buttonOnTap: () async {
-                          await Future.delayed(
-                              const Duration(milliseconds: 75));
-                          preferencesShareholder.addArtistToFav(actor: actor);
-                          await Future.delayed(
-                              const Duration(milliseconds: 200));
-                          fToast.removeQueuedCustomToasts();
-                          fToast.showToast(
-                            child: ToastWidget(
-                              mainText: "Saved to Artists",
-                              buttonText: "See list",
-                              buttonColor: kAccentColor,
-                              pushOnButtonTap: true,
-                              listName: 'artists',
-                            ),
-                            gravity: ToastGravity.BOTTOM,
-                            toastDuration: const Duration(seconds: 3),
-                          );
-                          setState(() => isFavourite = true);
-                        }),
-                    gravity: ToastGravity.BOTTOM,
-                    toastDuration: const Duration(seconds: 3),
-                  );
-                  setState(() => isFavourite = false);
-                }
-              },
-              backgroundColor: kPrimaryColor,
-              child: Icon(
-                isFavourite
-                    ? FontAwesomeIcons.solidHeart
-                    : FontAwesomeIcons.heart,
-                color: Colors.white,
-              )),
           floatingActionButtonLocation: _isBottomAppBarVisible
               ? FloatingActionButtonLocation.endDocked
               : FloatingActionButtonLocation.endFloat,

@@ -22,7 +22,7 @@ class MainPage extends StatelessWidget {
           selectedIndex: _.selectedIndex,
           animationCurve: Curves.linear,
           showElevation: true,
-          backgroundColor: kBackgroundColor,
+          backgroundColor: kSecondaryColor,
           animationDuration: const Duration(milliseconds: 250),
           iconSize: 27.5,
           height: 70,
@@ -54,31 +54,6 @@ class MainPage extends StatelessWidget {
               activeColor: Colors.white,
               title: const Text(
                 'Search',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-            ),
-            FlashyTabBarItem(
-              icon: const Icon(
-                Icons.bookmark_outline_rounded,
-              ),
-              activeColor: Colors.white,
-              title: const Text(
-                'Lists',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-            ),
-            FlashyTabBarItem(
-              icon: const Icon(
-                Icons.podcasts_rounded,
-              ),
-              activeColor: Colors.white,
-              inactiveColor: const Color(0xff9496c1),
-              title: const Text(
-                'Profile',
                 style: TextStyle(
                   fontSize: 15,
                 ),

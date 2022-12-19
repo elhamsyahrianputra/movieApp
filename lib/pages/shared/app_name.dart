@@ -12,7 +12,7 @@ class AppName extends StatelessWidget {
         style: TextStyle(
             fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
         children: <TextSpan>[
-          TextSpan(text: 'Lab', style: TextStyle(color: kPrimaryColor)),
+          TextSpan(text: 'Zone', style: TextStyle(color: kPrimaryColor)),
         ],
       ),
     );

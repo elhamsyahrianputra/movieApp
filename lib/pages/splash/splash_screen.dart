@@ -4,6 +4,7 @@ import 'package:movielab/constants/app.dart';
 import 'package:movielab/modules/Recommender/Recommender.dart';
 import 'package:movielab/modules/tools/navigate.dart';
 import 'package:movielab/pages/main/main_page.dart';
+import 'package:movielab/pages/shared/app_name.dart';
 import 'package:movielab/widgets/error.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../constants/colors.dart';
@@ -43,14 +44,10 @@ class _SplashScreenState extends State<SplashScreen> {
           const SizedBox(),
           const SizedBox(),
           const SizedBox(),
-          Center(
+          const Center(
             child: Padding(
-              padding: const EdgeInsets.all(50.0),
-              child: Image.asset(
-                "assets/images/logos/logo.png",
-                color: kPrimaryColor,
-                fit: BoxFit.cover,
-              ),
+              padding: EdgeInsets.all(50.0),
+              child: AppName(),
             ),
           ),
           const SizedBox(),

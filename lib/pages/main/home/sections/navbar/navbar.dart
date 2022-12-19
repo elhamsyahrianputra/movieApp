@@ -17,7 +17,7 @@ class HomeNavbar extends StatelessWidget {
       width: double.infinity,
       height: 100,
       decoration: BoxDecoration(
-        color: kSecondaryColor,
+        color: kBackgroundColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
@@ -30,18 +30,9 @@ class HomeNavbar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          TextButton(
-            onPressed: () async {
-              await Future.delayed(const Duration(milliseconds: 100));
-              Navigate.pushTo(context, const AboutPage());
-            },
-            style: TextButton.styleFrom(
-                padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.5))),
-            child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: AppName()),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: AppName(),
           ),
           SizedBox(
             width: 50,

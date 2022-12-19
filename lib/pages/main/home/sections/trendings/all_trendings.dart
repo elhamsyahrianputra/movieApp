@@ -27,7 +27,7 @@ class AllTrendingsPage extends StatelessWidget {
                 FontAwesomeIcons.arrowLeft,
                 size: 22.5,
               )),
-          backgroundColor: kBlueColor,
+          backgroundColor: kBackgroundColor,
           title: Text(title,
               style:
                   const TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),

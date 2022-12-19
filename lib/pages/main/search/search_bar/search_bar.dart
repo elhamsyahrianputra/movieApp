@@ -66,51 +66,6 @@ class SearchBar extends StatelessWidget {
                     fontWeight: FontWeight.w600, fontSize: 17.5),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 5, top: 12.5, bottom: 12.5),
-              child: VerticalDivider(
-                color: Colors.white,
-              ),
-            ),
-            _.fieldText == ""
-                ? IconButton(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed: () async {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return const VoiceSearchAlertDialog();
-                          });
-                    },
-                    icon: const Padding(
-                      padding: EdgeInsets.only(right: 15, left: 5),
-                      child: Icon(
-                        FontAwesomeIcons.microphoneLines,
-                        size: 22.5,
-                      ),
-                    ),
-                  )
-                : IconButton(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed: () {
-                      _.updateFieldState(tapped: false, text: "");
-                      _.updateResult(
-                          movieResult: null,
-                          seriesResult: null,
-                          peopleResult: null);
-                      _.setLoadingStatus(status: RequestResult.NOT_STARTED);
-                      _.controller.clear();
-                    },
-                    icon: const Padding(
-                      padding: EdgeInsets.only(right: 15),
-                      child: Icon(
-                        Icons.close_rounded,
-                        size: 27.5,
-                      ),
-                    ),
-                  ),
           ],
         ),
       );

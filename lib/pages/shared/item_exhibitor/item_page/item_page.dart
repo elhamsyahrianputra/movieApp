@@ -8,14 +8,11 @@ import 'package:movielab/modules/cache/get_item_info.dart';
 import 'package:movielab/modules/preferences/preferences_shareholder.dart';
 import 'package:movielab/modules/tools/navigate.dart';
 import 'package:movielab/modules/tools/system_ui_overlay_style.dart';
-import 'package:movielab/pages/shared/item_exhibitor/item_popup/watchtime/watchtime.dart';
 import 'package:movielab/widgets/error.dart';
 import 'package:movielab/widgets/full_image_page.dart';
 import 'package:movielab/widgets/inefficacious_refresh_indicator.dart';
-import 'sections/bottom_bar/bottom_bar.dart';
 import 'sections/bottom_bar/sections/external_sites/external_sites.dart';
 import 'sections/index.dart';
-import 'sections/media.dart';
 import 'sections/other_ratings/other_ratings.dart';
 
 class ItemPage extends StatefulWidget {
@@ -103,54 +100,6 @@ class _ItemPageState extends State<ItemPage> with TickerProviderStateMixin {
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.easeInOut,
                         height: _isBottomAppBarVisible ? 60 : 0.0,
-                        child: BottomAppBar(
-                            shape: const CircularNotchedRectangle(),
-                            clipBehavior: Clip.antiAlias,
-                            notchMargin: 7.5,
-                            color: kSecondaryColor,
-                            child: ItemPageBottonBar(
-                              show: show,
-                              isThereInLists: _isThereInLists,
-                              updateShowData: loadItemData,
-                            )),
-                      )
-                    : const SizedBox.shrink(),
-                floatingActionButton: widget.preTag != "episode"
-                    ? FloatingActionButton(
-                        onPressed: () {
-                          _isThereInLists["history"] != true
-                              ? showModalBottomSheet(
-                                  context: context,
-                                  shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(20),
-                                  )),
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  backgroundColor: kSecondaryColor,
-                                  transitionAnimationController:
-                                      AnimationController(
-                                          duration:
-                                              const Duration(milliseconds: 225),
-                                          vsync: this),
-                                  builder: (context) {
-                                    return AddWatchTime(
-                                      fullShow: show,
-                                      updateShowData: loadItemData,
-                                      backgroundColor: kSecondaryColor,
-                                    );
-                                  })
-                              : null;
-                        },
-                        backgroundColor: kPrimaryColor,
-                        child: _isThereInLists["history"] != true
-                            ? const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              )
-                            : const Icon(
-                                Icons.check,
-                                color: Colors.white,
-                              ),
                       )
                     : const SizedBox.shrink(),
                 floatingActionButtonLocation: _isBottomAppBarVisible
@@ -251,10 +200,6 @@ class _ItemPageState extends State<ItemPage> with TickerProviderStateMixin {
                           actorList: show.actorList,
                         ),
                         ItemPageEpisodeGuide(show: show),
-                        ItemPageMedia(
-                          images: show.images,
-                          posters: show.posters,
-                        ),
                         ItemPageMoreInfo(show: show),
                         ItemPageBoxOffice(show: show),
                         ItemPageOtherRatings(show: show),
