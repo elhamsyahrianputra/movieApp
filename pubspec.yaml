@@ -68,3 +68,11 @@ flutter:
   assets:
      - assets/images/logos/
      - assets/images/
+
+  fonts:
+    - family: HARLOWSI
+      fonts:
+        - asset: assets/fonts/HARLOWSI.ttf
+          style: italic
+    #       - asset: fonts/Schyler-Italic.ttf
+    #         style: italic

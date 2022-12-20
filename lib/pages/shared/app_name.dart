@@ -7,10 +7,10 @@ class AppName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
-      text: const TextSpan(
+      text: TextSpan(
         text: 'Movie',
-        style: TextStyle(
-            fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
+        style: 
+        TextStyle(fontFamily: 'HARLOWSI',fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
         children: <TextSpan>[
           TextSpan(text: 'Zone', style: TextStyle(color: kPrimaryColor)),
         ],
