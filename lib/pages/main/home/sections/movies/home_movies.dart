@@ -26,24 +26,6 @@ class HomeMoviesBuilder extends StatelessWidget {
               Padding(
                   padding: const EdgeInsets.only(left: 10, top: 15),
                   child: homeTitle(title)),
-              InkWell(
-                onTap: () {
-                  Navigate.pushTo(context,
-                      AllMoviesPage(movies: movies, title: title));
-                },
-                highlightColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 10, top: 15),
-                  child: Text(
-                    'Show All',
-                    style: TextStyle(
-                        color: Colors.white.withOpacity(0.75),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ),
-              ),
             ],
           ),
           SizedBox(
